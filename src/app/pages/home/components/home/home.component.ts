@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit {
                 if (query.length > 2) {
                     this.filterParams = this.showFilterHelper.getFilters(query);
                 }
+                if(query.length === 0) {
+                    this.filterParams = this.showFilterHelper.getFilters(query);
+                }
             });
     }
 }

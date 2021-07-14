@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ShowService} from "../../../../services/show.service";
 import {environment} from "../../../../../environments/environment";
 import {Show} from "../../../../interfaces/show";
+import {MovieType} from '../../../../enums/movie-type.enum';
 
 @Component({
     selector: 'app-show-list',
@@ -11,12 +12,12 @@ import {Show} from "../../../../interfaces/show";
 export class ShowListComponent implements OnInit {
     private totalCount = 0;
     private pageSize = 0;
-    private currentPage = 0;
+    private currentPage = 1;
     private pageCount = 0;
     private offset = 0;
     public showList = [];
     public hasMoreItems = false;
-    @Input() showType = 'movie';
+    @Input() showType = MovieType.Movie;
     public baseUrl = environment.baseUrl;
     public _filterParams:any = {};
 
@@ -64,7 +65,7 @@ export class ShowListComponent implements OnInit {
         this.showList = [];
         this.totalCount = 0;
         this.pageSize = 0;
-        this.currentPage = 0;
+        this.currentPage = 1;
         this.pageCount = 0;
         this.offset = 0;
         this.hasMoreItems = false;

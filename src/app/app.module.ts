@@ -7,7 +7,6 @@ import {ThemeModule} from './theme/theme.module';
 import {InterceptorModule} from './interceptor/interceptor/interceptor.module';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from "@angular/common";
-import {MatTabsModule} from "@angular/material/tabs";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({

@@ -14,9 +14,9 @@ export class ShowFilterHelperService {
         this.filters = {};
 
         this.setStarFilter(query);
-        this.getAtLeastStarsFilter(query)
-        this.getAfterFilter(query);
-        this.getOlderThanFilter(query);
+        this.setAtLeastStarsFilter(query)
+        this.setAfterFilter(query);
+        this.setOlderThanFilter(query);
 
         if (Object.keys(this.filters).length === 0) {
             this.filters.search_term = query;
@@ -27,37 +27,37 @@ export class ShowFilterHelperService {
     }
 
     private setStarFilter(query) {
-        const regex = /[0-5] stars/g;
+        const regex = /^((?!at least ).)*[0-5] stars/g;
         const matchedData = query.match(regex);
         if (!matchedData) {
             return null;
         }
         const valueRegex = /[0-5]/g;
-        const value = matchedData[0].match(valueRegex)[0];
-        this.filters.rating = value;
+        this.filters.rating = matchedData[0].match(valueRegex)[0];
     }
 
-    private getAtLeastStarsFilter(query) {
+    private setAtLeastStarsFilter(query) {
         const regex = /at least [0-5] stars/g;
         const matchedData = query.match(regex);
         if (!matchedData) {
             return null;
         }
         const valueRegex = /[0-5]/g;
-        return matchedData[0].match(valueRegex)[0];
+        this.filters.min_rating = matchedData[0].match(valueRegex)[0];
+
     }
 
-    private getAfterFilter(query) {
+    private setAfterFilter(query) {
         const regex = /after 2[0-9][0-9][0-9]/g;
         const matchedData = query.match(regex);
         if (!matchedData) {
             return null;
         }
         const valueRegex = /2[0-9][0-9][0-9]/g;
-        return matchedData[0].match(valueRegex)[0];
+        this.filters.min_year = matchedData[0].match(valueRegex)[0];
     }
 
-    private getOlderThanFilter(query) {
+    private setOlderThanFilter(query) {
         const regex = /older than [1-9][0-9]* years/g;
         const matchedData = query.match(regex);
         if (!matchedData) {
