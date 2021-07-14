@@ -73,7 +73,6 @@ export class ShowListComponent implements OnInit {
 
     changeRating(rating: any, show: Show) {
         this.showService.rate(show.id, show.rating).subscribe(value => {
-            console.log(value);
         });
     }
 }
