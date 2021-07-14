@@ -1,0 +1,9 @@
+<form class="form" [formGroup]="form">
+    <input formControlName="username" type="text"
+           placeholder="Username">
+    <input formControlName="password" type="password"
+           placeholder="password">
+    <button class="btn btn-danger-custom fe-full-width"
+            (click)="login()">Login
+    </button>
+</form>

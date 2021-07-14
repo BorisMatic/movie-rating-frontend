@@ -1,0 +1,7 @@
+<form [formGroup]="searchForm">
+    <input formControlName="text">
+</form>
+<mat-tab-group>
+    <mat-tab label="Movies"><app-show-list [showType]="'movie'" [filterParams]="filterParams"></app-show-list></mat-tab>
+    <mat-tab label="TV Shows"><app-show-list [showType]="'tv-show'" [filterParams]="filterParams"></app-show-list></mat-tab>
+</mat-tab-group>
