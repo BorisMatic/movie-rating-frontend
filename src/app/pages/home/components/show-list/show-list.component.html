@@ -1,13 +1,13 @@
-<div *ngFor="let movie of showList">
+<div *ngFor="let show of showList">
     <div class="show-item">
-        <img class="show-image" [src]="baseUrl + '/v1/image/view?id=' + movie.image_id" alt="">
+        <img class="show-image" [src]="baseUrl + '/v1/image/view?id=' + show.image_id" alt="">
         <div class="show-info">
-            <p>{{movie.title}}</p>
-            <p>{{movie.description}}</p>
+            <p>{{show.title}}</p>
+            <p>{{show.description}}</p>
             <p>Cast</p>
-            <p *ngFor="let actor of movie.actors">{{actor.first_name}} {{actor.last_name}}</p>
+            <p *ngFor="let actor of show.actors">{{actor.first_name}} {{actor.last_name}}</p>
             <div class="stars-wrap">
-                <ngx-star-rating (change)="changeRating($event, movie)" class="stars" [(ngModel)]="movie.rating" [disabled]="false"></ngx-star-rating>
+                <ngx-star-rating (change)="changeRating($event, show)" class="stars" [id]="show.id" [(ngModel)]="show.rating" [disabled]="false"></ngx-star-rating>
             </div>
         </div>
 
