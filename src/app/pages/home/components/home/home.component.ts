@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {debounceTime, distinctUntilChanged} from "rxjs/operators";
-import {ShowFilterHelperService} from "../../../../services/helpers/show-filter-helper.service";
+import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {ShowFilterHelperService} from '../../../../services/helpers/show-filter-helper.service';
 
 @Component({
     selector: 'app-home',
@@ -11,7 +11,7 @@ import {ShowFilterHelperService} from "../../../../services/helpers/show-filter-
 export class HomeComponent implements OnInit {
     searchForm: FormGroup;
     debounceTime = 100;
-    filterParams =  {};
+    filterParams = {};
 
     constructor(
         private formBuilder: FormBuilder,
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
                 if (query.length > 2) {
                     this.filterParams = this.showFilterHelper.getFilters(query);
                 }
-                if(query.length === 0) {
+                if (query.length === 0) {
                     this.filterParams = this.showFilterHelper.getFilters(query);
                 }
             });
